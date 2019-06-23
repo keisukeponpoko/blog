@@ -1,0 +1,48 @@
+// font-size
+$font_size_title = 1.8rem
+$font_size_large = 1.6rem
+$font_size_normal = 1.4rem
+$font_size_small = 1.2rem
+$font_size_tiny = 1rem
+
+// transition設定
+$transition = 0.2s ease-out 0s
+
+// opacity設定
+$opacity = 0.6
+
+// z-index
+$z_index_header = 100
+$z_index_dropdown = 1000
+
+// 文字色
+$text_color = #431
+$border_color = #cfcabf
+$accent_color = #ed1515
+
+$screen-sm = 768px
+
+desktop() {
+  @media only screen and (min-width: 840px) {
+    {block}
+  }
+}
+
+tablet() {
+  @media only screen and (min-width: 480px) {
+    {block}
+  }
+}
+
+// vue transition opacity
+v-transition() {
+  .v-enter-active,
+  .v-leave-active {
+    transition: $transition;
+  }
+
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+}

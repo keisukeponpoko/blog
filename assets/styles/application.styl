@@ -1,0 +1,59 @@
+@import "./variables"
+
+* {
+  -webkit-appearance: none;
+}
+
+html{
+  font-family: HiraKakuProN-W3;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: $font_size_normal;
+  color: $text_color;
+  background-color: white;
+}
+
+a {
+  color: $text_color;
+  text-decoration: none;
+
+  +desktop() {
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      color: $accent_color;
+      opacity: $opacity;
+    }
+  }
+}
+
+button {
+  border: none;
+  background: transparent;
+  transition: $transition;
+  outline: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  line-height: 1.4;
+}

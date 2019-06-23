@@ -1,0 +1,33 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.renderControlCharacters": true,
+  "editor.wordWrap": "on",
+  "files.trimFinalNewlines": true,
+  "githubPullRequests.hosts": [
+    {
+      "host": "https://github.com",
+      "username": "oauth",
+      "token": "system"
+    }
+  ],
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "breadcrumbs.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontSize": 14,
+  "window.zoomLevel": -1,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true,
+  "eslint.autoFixOnSave": true
+}

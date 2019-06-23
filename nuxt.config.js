@@ -1,7 +1,32 @@
+const { createClient } = require('contentful')
 const pkg = require('./package')
 
+require('dotenv').config()
+
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+})
+
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
+
+  generate: {
+    routes: function() {
+      return client
+        .getEntries({
+          content_type: 'category'
+        })
+        .then(entries => {
+          return [...entries.items.map(entry => `/blog/${entry.fields.slug}`)]
+        })
+    }
+  },
+
+  env: {
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN
+  },
 
   /*
   ** Headers of the page
@@ -24,17 +49,29 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: ['~/assets/styles/reset.css', '~/assets/styles/application.styl'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['~/plugins/contentful.js'],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [],
+  modules: ['@nuxtjs/markdownit', '@nuxtjs/style-resources'],
+
+  styleResources: {
+    stylus: ['~assets/styles/variables.styl']
+  },
+
+  markdownit: {
+    injected: true,
+    breaks: true,
+    html: true,
+    linkify: true,
+    typography: true
+  },
 
   /*
   ** Build configuration
