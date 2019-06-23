@@ -11,6 +11,8 @@ const client = createClient({
 module.exports = {
   mode: 'universal',
 
+  dir: 'public',
+
   generate: {
     routes: function() {
       return client
